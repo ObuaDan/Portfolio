@@ -202,7 +202,7 @@ header.hero {
   place-items: center;
   text-align: center;
   padding: 28px;
-  background-image: url('Images/profile.jpeg');
+  /* background-image: url('Images/profile.jpeg'); */
   background-size: cover;
   background-position: center;
   color: rgba(255, 255, 255, 0.7);
