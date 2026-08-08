@@ -123,6 +123,7 @@ nav .wrap {
   color: var(--muted);
   grid-column: 3;
   justify-self: end;
+  margin-right: 20px;
 }
 
 .navlinks a:hover {
@@ -139,6 +140,79 @@ nav .wrap {
 header.hero {
   padding: 110px 0 90px;
   position: relative;
+}
+
+.hero-inner {
+  display: grid;
+  gap: 40px;
+  align-items: center;
+}
+
+@media (max-width: 979px) {
+  .hero-image {
+    order: -1;
+  }
+}
+
+@media(min-width: 980px) {
+  .hero-inner {
+    grid-template-columns: 1fr 0.95fr;
+  }
+}
+
+.hero-copy {
+  max-width: 640px;
+}
+
+.hero-image {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image__frame {
+  width: min(100%, 520px);
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(16, 17, 20, 0.92);
+  box-shadow: 0 32px 60px rgba(0, 0, 0, 0.28);
+}
+
+.hero-image__topbar {
+  display: flex;
+  gap: 10px;
+  padding: 18px;
+}
+
+.hero-image__topbar span {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--hot);
+}
+
+.hero-image__content {
+  padding: 18px;
+}
+
+.hero-image__photo {
+  min-height: 420px;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 28px;
+  background-image: url('Images/profile.jpeg');
+  background-size: cover;
+  background-position: center;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+}
+
+.hero-image__photo span {
+  max-width: 240px;
+  line-height: 1.6;
 }
 
 .hero h1 {
