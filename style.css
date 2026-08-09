@@ -493,35 +493,6 @@ footer .meta {
 }
 
 /* ---------- DEMOS OVERLAY PAGE ---------- */
-.demos-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 200;
-  background: var(--bg);
-  transform: translateY(-100%);
-  opacity: 0;
-  visibility: hidden;
-  transition: transform .45s ease, opacity .25s ease, visibility 0s linear .45s;
-  overflow-y: auto;
-  pointer-events: none;
-}
-
-body.demo-open .demos-overlay {
-  transform: translateY(0);
-  opacity: 1;
-  visibility: visible;
-  transition-delay: 0s;
-  pointer-events: auto;
-}
-
-.demos-overlay.closing,
-body.demo-open .demos-overlay.closing {
-  transform: translateY(-100%);
-  opacity: 0;
-  visibility: visible;
-  transition-delay: 0s;
-  pointer-events: none;
-}
 
 .demos-bar {
   position: sticky;
@@ -590,51 +561,37 @@ body.demo-open .demos-overlay.closing {
 }
 
 .demo-card {
+  position: relative;
+  overflow: hidden;
   background: var(--panel);
+  background-image: var(--demo-image, url('https://donaldthompson.com/wp-content/uploads/2024/10/placeholder-image-vertical-200x300.png'));
+  background-size: 100% auto;
+  background-position: center;
+  background-repeat: no-repeat;
   border: 1px solid var(--line);
   border-radius: 3px;
   padding: 26px;
   min-height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  opacity: 0;
-  transition: border-color .2s ease;
+  justify-content: end;
+  align-items: center;
+  opacity: 1;
+  transition: border-color .2s ease, transform .2s ease, background-size .35s ease;
 }
 
-body.demo-open .demos-overlay .demo-card,
-.demos-overlay:target .demo-card {
-  animation: cardIn .35s ease forwards;
+.demo-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(16, 17, 20, 0.12) 0%, rgba(16, 17, 20, 0.82) 100%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-body.demo-open .demos-overlay .demo-card:nth-child(1),
-.demos-overlay:target .demo-card:nth-child(1) {
-  animation-delay: .05s;
-}
-
-body.demo-open .demos-overlay .demo-card:nth-child(2),
-.demos-overlay:target .demo-card:nth-child(2) {
-  animation-delay: .1s;
-}
-
-body.demo-open .demos-overlay .demo-card:nth-child(3),
-.demos-overlay:target .demo-card:nth-child(3) {
-  animation-delay: .15s;
-}
-
-body.demo-open .demos-overlay .demo-card:nth-child(4),
-.demos-overlay:target .demo-card:nth-child(4) {
-  animation-delay: .2s;
-}
-
-body.demo-open .demos-overlay .demo-card:nth-child(5),
-.demos-overlay:target .demo-card:nth-child(5) {
-  animation-delay: .25s;
-}
-
-body.demo-open .demos-overlay .demo-card:nth-child(6),
-.demos-overlay:target .demo-card:nth-child(6) {
-  animation-delay: .3s;
+.demo-card > * {
+  position: relative;
+  z-index: 1;
 }
 
 @keyframes cardIn {
@@ -650,7 +607,17 @@ body.demo-open .demos-overlay .demo-card:nth-child(6),
 }
 
 .demo-card:hover {
-  border-color: var(--cool);
+  border-color: var(--hot);
+  background-size: 110% auto;
+}
+
+.demo-card:hover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #1ba66a34;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .demo-card .d-index {
@@ -663,7 +630,7 @@ body.demo-open .demos-overlay .demo-card:nth-child(6),
   font-family: 'Archivo Black';
   font-size: 17px;
   text-transform: uppercase;
-  margin: 14px 0 8px;
+  /* margin: 14px 0 8px; */
 }
 
 .demo-card p {
