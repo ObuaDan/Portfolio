@@ -7,6 +7,7 @@
   --muted: #8c8f98;
   --hot: #2bffa3;
   --cool: #4FD1E8;
+  --stagger: 0.2s;
 }
 
 * {
@@ -26,6 +27,7 @@ body {
   line-height: 1.5;
   overflow-x: hidden;
 }
+
 
 body.demo-open {
   overflow: hidden;
@@ -102,6 +104,19 @@ nav .wrap {
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
   padding: 25px 0;
+}
+
+/* Animate only the inner content so the card rectangle size is preserved */
+.demo-card__inner {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 26px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  transform-origin: center;
 }
 
 .brand {
@@ -492,7 +507,7 @@ footer .meta {
   gap: 10px;
 }
 
-/* ---------- DEMOS OVERLAY PAGE ---------- */
+/* ---------- DEMOS PAGE ---------- */
 
 .demos-bar {
   position: sticky;
@@ -544,17 +559,23 @@ footer .meta {
 .demo-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
+  gap: 25px;
   padding: 0 28px;
 }
 
 @media(max-width: 900px) {
   .demo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media(max-width: 600px) {
+  .demo-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-@media(max-width: 560px) {
+@media(max-width: 400px) {
   .demo-grid {
     grid-template-columns: 1fr;
   }
@@ -562,25 +583,40 @@ footer .meta {
 
 .demo-card {
   position: relative;
+  display: block;
   overflow: hidden;
   background: var(--panel);
   border: 1px solid var(--line);
   border-radius: 3px;
-  padding: 26px;
-  min-height: 400px;
-  display: flex;
-  flex-direction: column;
-  justify-content: start;
-  align-items: center;
-  opacity: 1;
+  padding: 0;
+  opacity: 0;
+  transform: scale(0.5);
+  aspect-ratio: 3 / 4;
+  width: 100%;
+  box-sizing: border-box;
   transition: border-color .2s ease, transform .2s ease;
+  animation: cardIn .4s ease-out forwards;
+  animation-delay: calc(var(--order, 0) * var(--stagger));
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .demo-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: var(--demo-image, url('https://donaldthompson.com/wp-content/uploads/2024/10/placeholder-image-vertical-200x300.png'));
+  background: var(--panel);
+  background: var(--image);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -589,29 +625,9 @@ footer .meta {
   z-index: 0;
 }
 
-.demo-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.demo-card > * {
+.demo-card>* {
   position: relative;
   z-index: 2;
-}
-
-@keyframes cardIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 
 .demo-card:hover {
@@ -639,7 +655,7 @@ footer .meta {
 
 .demo-card h3 {
   font-family: 'Archivo Black';
-  font-size: 17px;
+  font-size: 100%;
   text-transform: uppercase;
   /* margin: 14px 0 8px; */
 }

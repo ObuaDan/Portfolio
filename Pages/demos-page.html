@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Demos | obua.is-a.dev</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      background: var(--bg);
+    }
+
+    body.demos-page::before {
+      display: none;
+    }
+
+    .demos-page .wrap {
+      z-index: 1;
+    }
+  </style>
+</head>
+
+<body class="demos-page">
+  <div class="demos-bar">
+    <div class="wrap">
+      <a href="../index.html" class="back-btn">Back</a>
+      <div class="brand">OBUA<span class="monogreen">.is-a.dev</span> / Demos</div>
+    </div>
+  </div>
+  <div class="wrap demo-grid-wrap">
+    <div class="demo-grid">
+      <a class="demo-card" href="Demos/voxels_demo.html" style="--image: url('voxels-webgl/voxels.png');">
+        <div class="demo-card__inner">
+          <h3>2D PLATFORMER SHOOTER: VOXELS</h3>
+          <!-- <p>Example project card with its own background image and text overlay.</p> -->
+        </div>
+      </a>
+      <a class="demo-card" href="Demos/voxels_demo.html">
+        <div class="demo-card__inner" style="justify-content: center; align-items: center; background: var(--bg);">
+          <!-- <h3>COMING SOON...</h3> -->
+        </div>
+      </a>
+      <a class="demo-card" href="Demos/voxels_demo.html">
+        <div class="demo-card__inner" style="justify-content: center; align-items: center; background: var(--bg);">
+          <!-- <h3>COMING SOON...</h3> -->
+        </div>
+      </a>
+    </div>
+  </div>
+  <script>
+    // Set a CSS variable `--order` on each demo card so animation delay scales automatically.
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('.demo-grid .demo-card').forEach(function (el, i) {
+        el.style.setProperty('--order', i);
+      });
+    });
+  </script>
+</body>
+
+</html>
