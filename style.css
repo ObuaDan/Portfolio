@@ -564,7 +564,7 @@ footer .meta {
   position: relative;
   overflow: hidden;
   background: var(--panel);
-  background-image: var(--demo-image, url('https://donaldthompson.com/wp-content/uploads/2024/10/placeholder-image-vertical-200x300.png'));
+  background-image: var(--demo-image, url('https://eaaa.org/wp-content/uploads/2017/02/placeholder_featured_image-square.jpg'));
   background-size: 100% auto;
   background-position: center;
   background-repeat: no-repeat;
