@@ -7,6 +7,33 @@
   <title>Unity Web Player | Voxels</title>
   <link rel="shortcut icon" href="TemplateData/favicon.ico">
   <link rel="stylesheet" href="TemplateData/style.css">
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #101114;
+    }
+
+    #unity-container,
+    #unity-container.unity-desktop {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      left: auto;
+      top: auto;
+      transform: none;
+    }
+
+    #unity-canvas {
+      width: 100% !important;
+      height: 100% !important;
+      display: block;
+    }
+  </style>
 </head>
 
 <body>
@@ -100,9 +127,9 @@
 
 
     } else {
-      // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-      canvas.style.width = "960px";
-      canvas.style.height = "600px";
+      // Desktop style: scale the canvas to fit the available container.
+      canvas.style.width = "100%";
+      canvas.style.height = "100%";
     }
 
     document.querySelector("#unity-loading-bar").style.display = "block";

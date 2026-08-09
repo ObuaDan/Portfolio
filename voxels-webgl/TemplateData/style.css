@@ -4,13 +4,13 @@ body {
 }
 
 #unity-container {
-    position: absolute
+    position: absolute;
 }
 
 #unity-container.unity-desktop {
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -70%)
+    top: 0%;
+    transform: translate(-50%, -50%);
 }
 
 #unity-container.unity-mobile {
@@ -20,7 +20,7 @@ body {
 }
 
 #unity-canvas {
-    background-color: #101114;
+    background-color: hsl(225, 11%, 8%);
 }
 
 .unity-mobile #unity-canvas {
