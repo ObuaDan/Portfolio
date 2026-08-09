@@ -8,6 +8,7 @@
   --hot: #2bffa3;
   --cool: #4FD1E8;
   --stagger: 0.2s;
+  --time: 0.2s;
 }
 
 * {
@@ -558,7 +559,7 @@ footer .meta {
 
 .demo-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 25px;
   padding: 0 28px;
 }
@@ -569,17 +570,20 @@ footer .meta {
   }
 }
 
-@media(max-width: 600px) {
+@media(max-width: 700px) {
   .demo-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 }
 
-@media(max-width: 400px) {
+@media(max-width: 500px) {
   .demo-grid {
     grid-template-columns: 1fr;
+    gap: 25px;
   }
 }
+
 
 .demo-card {
   position: relative;
@@ -589,26 +593,36 @@ footer .meta {
   border: 1px solid var(--line);
   border-radius: 3px;
   padding: 0;
-  opacity: 0;
-  transform: scale(0.5);
+  transform: scale(.75);
   aspect-ratio: 3 / 4;
   width: 100%;
   box-sizing: border-box;
   transition: border-color .2s ease, transform .2s ease;
-  animation: cardIn .4s ease-out forwards;
+  animation: cardIn var(--time) ease-out forwards;
   animation-delay: calc(var(--order, 0) * var(--stagger));
 }
 
 @keyframes cardIn {
   from {
-    opacity: 0;
-    transform: scale(0.5);
+    transform: scale(0.75);
   }
 
   to {
-    opacity: 1;
     transform: scale(1);
   }
+}
+
+.demo-card.ignore-animation {
+  animation: none;
+  transform: scale(1);
+  border: none;
+}
+
+.demo-card.ignore-animation .demo-card__inner {
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  pointer-events: none;
 }
 
 .demo-card::before {
@@ -642,7 +656,6 @@ footer .meta {
   content: "";
   position: absolute;
   inset: 0;
-  background: #1ba66a34;
   pointer-events: none;
   z-index: 0;
 }
@@ -657,7 +670,6 @@ footer .meta {
   font-family: 'Archivo Black';
   font-size: 100%;
   text-transform: uppercase;
-  /* margin: 14px 0 8px; */
 }
 
 .demo-card p {
