@@ -564,10 +564,6 @@ footer .meta {
   position: relative;
   overflow: hidden;
   background: var(--panel);
-  background-image: var(--demo-image, url('https://donaldthompson.com/wp-content/uploads/2024/10/placeholder-image-vertical-200x300.png'));
-  background-size: 100% auto;
-  background-position: center;
-  background-repeat: no-repeat;
   border: 1px solid var(--line);
   border-radius: 3px;
   padding: 26px;
@@ -577,21 +573,33 @@ footer .meta {
   justify-content: end;
   align-items: center;
   opacity: 1;
-  transition: border-color .2s ease, transform .2s ease, background-size .35s ease;
+  transition: border-color .2s ease, transform .2s ease;
 }
 
 .demo-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(16, 17, 20, 0.12) 0%, rgba(16, 17, 20, 0.82) 100%);
-  pointer-events: none;
+  background-image: var(--demo-image, url('https://donaldthompson.com/wp-content/uploads/2024/10/placeholder-image-vertical-200x300.png'));
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transform: scale(1);
+  transition: transform .35s ease;
   z-index: 0;
+}
+
+.demo-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .demo-card > * {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 @keyframes cardIn {
@@ -608,7 +616,10 @@ footer .meta {
 
 .demo-card:hover {
   border-color: var(--hot);
-  background-size: 110% auto;
+}
+
+.demo-card:hover::before {
+  transform: scale(1.15);
 }
 
 .demo-card:hover::after {
