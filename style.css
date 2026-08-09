@@ -619,7 +619,7 @@ footer .meta {
 }
 
 .demo-card:hover::before {
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
 .demo-card:hover::after {
