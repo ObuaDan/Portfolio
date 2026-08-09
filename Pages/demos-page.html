@@ -11,13 +11,15 @@
     href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="../style.css">
+  <link rel="preload" as="image" href="../Images/voxels.png">
   <style>
     body {
       background: var(--bg);
     }
 
-    body.demos-page::before {
-      display: none;
+    body::before {
+      background-image: radial-gradient(circle, rgba(255, 255, 255, 0.055) 1px, transparent 1.2px);
+      background-size: 14px 14px;
     }
 
     .demos-page .wrap {
@@ -29,40 +31,30 @@
 <body class="demos-page">
   <div class="demos-bar">
     <div class="wrap">
-      <a href="../index.html" class="back-btn">Back</a>
-      <div class="brand">OBUA<span class="monogreen">.is-a.dev</span> / Demos</div>
+      <div class="brand"><a href="../index.html"><span class="monogreen">home</span></a> / Demos</div>
     </div>
   </div>
   <div class="wrap demo-grid-wrap">
     <div class="demo-grid">
-      <a class="demo-card" href="Demos/voxels_demo.html" style="--image: url('Images/voxels.png');">
+
+      <a class="demo-card" href="Demos/voxels_demo.html" style="--image: url('/Images/voxels.png');">
         <div class="demo-card__inner">
           <h3>2D PLATFORMER SHOOTER: VOXELS</h3>
           <!-- <p>Example project card with its own background image and text overlay.</p> -->
         </div>
       </a>
-      <a class="demo-card ignore-animation">
+
+      <a class="demo-card ignore">
         <div class="demo-card__inner"></div>
       </a>
-      <a class="demo-card ignore-animation">
+
+      <a class="demo-card ignore">
         <div class="demo-card__inner"></div>
       </a>
-      <a class="demo-card ignore-animation">
-        <div class="demo-card__inner"></div>
-      </a>
-      <a class="demo-card ignore-animation">
-        <div class="demo-card__inner"></div>
-      </a>
+
     </div>
   </div>
-  <script>
-    // Set a CSS variable `--order` on each demo card so animation delay scales automatically.
-    document.addEventListener('DOMContentLoaded', function () {
-      document.querySelectorAll('.demo-grid .demo-card').forEach(function (el, i) {
-        el.style.setProperty('--order', i);
-      });
-    });
-  </script>
+
 </body>
 
 </html>
