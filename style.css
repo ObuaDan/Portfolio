@@ -570,7 +570,7 @@ footer .meta {
   min-height: 400px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: start;
   align-items: center;
   opacity: 1;
   transition: border-color .2s ease, transform .2s ease;

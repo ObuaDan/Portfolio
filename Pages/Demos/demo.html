@@ -18,6 +18,18 @@
             flex-direction: column;
             background: var(--bg);
         }
+
+        .demo-main {
+            flex: 1;
+            display: flex;
+        }
+
+        .demo-main iframe {
+            flex: 1;
+            width: 100%;
+            border: none;
+            display: block;
+        }
     </style>
 </head>
 
@@ -28,15 +40,7 @@
             <div class="brand">OBUA<span class="monogreen">.is-a.dev</span> / Demos / Project</div>
         </div>
     </div>
-    <main class="demo-main">
-    </main>
-    <script>
-        document.addEventListener('keydown', function (event) {
-            if (event.key === 'Escape') {
-                window.location.href = '../../demos.html';
-            }
-        });
-    </script>
+
 </body>
 
 </html>
