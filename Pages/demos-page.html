@@ -52,7 +52,7 @@
         const projects = await response.json();
 
         const grid = document.getElementById("demo-grid");
-        
+
         projects.forEach(project => {
           const card = document.createElement("a");
           const isEmpty = project.id === "empty";
@@ -61,7 +61,7 @@
           card.href = isEmpty ? "#" : project.page;
 
           if (project.image) {
-            card.style.setProperty("--image", `url('../${project.image}')`);
+            card.style.setProperty("--image", `url('${project.image}')`);
           }
 
           card.innerHTML = `
