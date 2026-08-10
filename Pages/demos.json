@@ -1,28 +1,62 @@
 [
     {
-        "id": "voxels",
-        "title": "2D Platformer Shooter: Voxels",
-        "subtitle": "Aug 2022 - Present",
-        "tags": ["Unity", "C#", "2D"],
+        "id": "",
+        "title": "2D Platformer Shooter",
+        "subtitle": "June 2026 - Present",
+        "tags": [
+            "Unity",
+            "C#",
+            "2D"
+        ],
         "image": "Images/voxels.png",
         "page": "Demos/voxels_demo.html"
     },
     {
-        "id": "empty",
-        "title": "COMING SOON...",
+        "id": "work in progress",
+        "title": "2D Topdown Shooter",
+        "subtitle": "work in progress..",
+        "tags": [
+            "Unity",
+            "C#",
+            "2D"
+        ],
         "image": "",
-        "page": "Demos/default_demo.html"
+        "page": "Demos/voxels_demo.html"
+    },
+    {
+        "id": "work in progress",
+        "title": "Flappy bird clone",
+        "subtitle": "work in progress..",
+        "tags": [
+            "Unity",
+            "C#",
+            "2D"
+        ],
+        "image": "",
+        "page": "Demos/voxels_demo.html"
+    },
+    {
+        "id": "work in progress",
+        "title": "angry birds clone",
+        "subtitle": "work in progress..",
+        "tags": [
+            "Unity",
+            "C#",
+            "2D"
+        ],
+        "image": "",
+        "page": "Demos/voxels_demo.html"
     },
     {
         "id": "empty",
-        "title": "COMING SOON...",
-        "image": "",
-        "page": "Demos/default_demo.html"
+        "title": "?"
     },
     {
         "id": "empty",
-        "title": "COMING SOON...",
-        "image": "",
-        "page": "Demos/default_demo.html"
+        "title": "?"
+    },
+    {
+        "id": "empty",
+        "title": "?"
     }
 ]

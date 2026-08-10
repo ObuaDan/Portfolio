@@ -36,8 +36,7 @@
   </div>
 
   <div class="wrap demo-grid-wrap">
-    <div class="demo-grid" id="demo-grid">
-    </div>
+    <div class="demo-grid" id="demo-grid"> </div>
   </div>
 
   <script>
@@ -50,15 +49,18 @@
         }
 
         const projects = await response.json();
-
         const grid = document.getElementById("demo-grid");
 
         projects.forEach(project => {
           const card = document.createElement("a");
           const isEmpty = project.id === "empty";
+          const isWorkInProgress = project.id === "work in progress";
 
-          card.className = isEmpty ? "demo-card demo-card--empty" : "demo-card";
-          card.href = isEmpty ? "#" : project.page;
+          card.className = isEmpty ? "demo-card demo-card--empty" :
+            isWorkInProgress ? "demo-card demo-card--work-in-progress" :
+              "demo-card";
+
+          card.href = isEmpty || isWorkInProgress ? "#" : project.page;
 
           if (project.image) {
             card.style.setProperty("--image", `url('${project.image}')`);
@@ -71,6 +73,7 @@
           card.innerHTML = isEmpty
             ? `<div class="demo-card__inner"><h3>${project.title}</h3></div>`
             : `
+
       <div class="demo-card__image"></div>
       <div class="demo-card__inner">
         <h3>${project.title}</h3>
