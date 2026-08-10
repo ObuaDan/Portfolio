@@ -8,7 +8,7 @@
             "C#",
             "2D"
         ],
-        "image": "Images/voxels.png",
+        "image": "/Images/voxels.png",
         "page": "Demos/voxels_demo.html"
     },
     {
