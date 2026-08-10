@@ -1,7 +1,9 @@
 [
     {
         "id": "voxels",
-        "title": "2D PLATFORMER SHOOTER: VOXELS",
+        "title": "2D Platformer Shooter: Voxels",
+        "subtitle": "Aug 2022 - Present",
+        "tags": ["Unity", "C#", "2D"],
         "image": "Images/voxels.png",
         "page": "Demos/voxels_demo.html"
     },
