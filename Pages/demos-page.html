@@ -34,27 +34,52 @@
       <div class="brand"><a href="../index.html"><span class="monogreen">home</span></a> / Demos</div>
     </div>
   </div>
+
   <div class="wrap demo-grid-wrap">
-    <div class="demo-grid">
-
-      <a class="demo-card" href="Demos/voxels_demo.html" style="--image: url('../Images/voxels.png');">
-        <div class="demo-card__inner">
-          <h3>2D PLATFORMER SHOOTER: VOXELS</h3>
-          <!-- <p>Example project card with its own background image and text overlay.</p> -->
-        </div>
-      </a>
-
-      <a class="demo-card ignore">
-        <div class="demo-card__inner"></div>
-      </a>
-
-      <a class="demo-card ignore">
-        <div class="demo-card__inner"></div>
-      </a>
-
+    <div class="demo-grid" id="demo-grid">
     </div>
   </div>
 
+  <script>
+    async function loadProjects() {
+      try {
+        const response = await fetch("demos.json");
+
+        if (!response.ok) {
+          throw new Error("Could not load projects.json");
+        }
+
+        const projects = await response.json();
+
+        const grid = document.getElementById("demo-grid");
+        
+        projects.forEach(project => {
+          const card = document.createElement("a");
+          const isEmpty = project.id === "empty";
+
+          card.className = isEmpty ? "demo-card demo-card--empty" : "demo-card";
+          card.href = isEmpty ? "#" : project.page;
+
+          if (project.image) {
+            card.style.setProperty("--image", `url('../${project.image}')`);
+          }
+
+          card.innerHTML = `
+        <div class="demo-card__inner">
+            <h3>${project.title}</h3>
+        </div>
+    `;
+
+          grid.appendChild(card);
+        });
+
+      } catch (error) {
+        console.error("Failed to load projects:", error);
+      }
+    }
+
+    loadProjects();
+  </script>
 </body>
 
 </html>

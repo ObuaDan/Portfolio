@@ -27,7 +27,6 @@ body {
   overflow-x: hidden;
 }
 
-
 body.demo-open {
   overflow: hidden;
 }
@@ -188,20 +187,14 @@ header.hero {
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(16, 17, 20, 0.92);
-  box-shadow: 0 32px 60px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 10px 6px rgba(0, 0, 0, 0.2);
 }
 
 .hero-image__topbar {
   display: flex;
   gap: 10px;
   padding: 18px;
-}
-
-.hero-image__topbar span {
-  width: 12px;
-  height: 12px;
-  border-radius: 999px;
-  background: var(--hot);
+  color: var(--muted);
 }
 
 .hero-image__content {
@@ -573,14 +566,12 @@ footer .meta {
 @media(max-width: 700px) {
   .demo-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
   }
 }
 
 @media(max-width: 500px) {
   .demo-grid {
     grid-template-columns: 1fr;
-    gap: 25px;
   }
 }
 
@@ -598,17 +589,19 @@ footer .meta {
   transition: border-color .2s ease, transform .2s ease;
 }
 
-.demo-card.ignore,
-.demo-card.ignore:hover {
+.demo-card--empty {
   transform: scale(1);
   border: none;
+  cursor: default;
+  pointer-events: none;
 }
 
-.demo-card.ignore .demo-card__inner {
+.demo-card--empty .demo-card__inner {
   justify-content: center;
   align-items: center;
   background: rgba(0, 0, 0, 0.3);
   pointer-events: none;
+  color: rgba(225,225,225, .05);
 }
 
 .demo-card::before {

@@ -1,0 +1,26 @@
+[
+    {
+        "id": "voxels",
+        "title": "2D PLATFORMER SHOOTER: VOXELS",
+        "image": "Images/voxels.png",
+        "page": "Demos/voxels_demo.html"
+    },
+    {
+        "id": "empty",
+        "title": "COMING SOON...",
+        "image": "",
+        "page": "Demos/default_demo.html"
+    },
+    {
+        "id": "empty",
+        "title": "COMING SOON...",
+        "image": "",
+        "page": "Demos/default_demo.html"
+    },
+    {
+        "id": "empty",
+        "title": "COMING SOON...",
+        "image": "",
+        "page": "Demos/default_demo.html"
+    }
+]
