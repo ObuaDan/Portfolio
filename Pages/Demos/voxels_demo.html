@@ -32,20 +32,17 @@
         }
 
         .demo-main {
-            flex: 1;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
-            padding: 28px;
-            min-height: 0;
-            margin-top: 50px;
+            padding: 28px 0;
         }
 
         .demo-frame {
-            width: min(960px, calc(100vw - 20px));
+            width: 100%;
             max-height: calc(100vh - 120px);
             aspect-ratio: 16 / 10;
             display: flex;
+            margin: 10px 0;
         }
 
         .demo-main iframe {
@@ -53,6 +50,65 @@
             height: 100%;
             border: none;
             display: block;
+        }
+
+        .mobile-warning {
+            display: none;
+            background: rgba(228, 75, 74, 0.12);
+            border: 1px solid rgba(228, 75, 74, 0.4);
+            border-radius: 6px;
+            padding: 20px 22px;
+            margin: 20px 28px;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .mobile-warning .tag {
+            font-family: 'Archivo Black';
+            font-size: 14px;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: #E24B4A;
+            background: rgba(228, 75, 74, 0.12);
+            border: 1px solid rgba(228, 75, 74, 0.4);
+        }
+
+        .mobile-warning p {
+            font-size: 13px;
+            color: #E24B4A;
+            line-height: 1.5;
+        }
+
+        body.is-mobile .demo-main {
+            display: none;
+        }
+
+        body.is-mobile .mobile-warning {
+            display: flex;
+        }
+
+        .demo-breakdown {
+            padding: 30px 0;
+            border-top: 1px solid var(--line);
+        }
+
+        .demo-breakdown h2 {
+            font-family: 'Archivo Black';
+            font-size: clamp(24px, 4vw, 32px);
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .demo-breakdown p {
+            color: var(--muted);
+            font-size: 15px;
+            line-height: 1.7;
+            max-width: 640px;
+            margin-bottom: 40px;
+        }
+
+        .demo-breakdown p+p {
+            margin-top: 14px;
         }
     </style>
 </head>
@@ -67,12 +123,36 @@
             </div>
         </div>
     </div>
+    <div class="mobile-warning">
+        <div class="tag">Desktop only</div>
+        <p>Sorry, this WebGL demo needs a mouse and keyboard. Open this page on a desktop or laptop to play it. You can
+            still
+            read the breakdown below.</p>
+    </div>
+
     <main class="demo-main">
-        <div class="demo-frame">
-            <iframe src="../../voxels-webgl/index.html" title="Voxels WebGL Demo" allowfullscreen></iframe>
+        <div class="wrap" style="width:100%;">
+            <div class="demo-frame">
+                <iframe src="../../voxels-webgl/index.html" title="Voxels WebGL Demo" allowfullscreen></iframe>
+            </div>
         </div>
     </main>
+    <section class="demo-breakdown">
+        <div class="wrap">
+            <h2>TECHNICAL BREAKDOWN</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis quas, aliquid beatae esse adipisci
+                quae sit similique fugit voluptatibus possimus id nostrum libero repudiandae hic numquam voluptatum
+                laborum a cupiditate doloribus. Numquam velit alias nulla fuga quaerat voluptatibus iste inventore, quos
+                molestias quo minima doloribus omnis distinctio eum maiores tempore!</p>
+        </div>
+    </section>
+
     <script>
+        const isMobile = /Android|iPhone|iPad|iPod|Mobile|Windows Phone/i.test(navigator.userAgent);
+        if (isMobile) {
+            document.body.classList.add('is-mobile');
+        }
+
         document.addEventListener('keydown', function (event) {
             if (event.key === 'Escape') {
                 window.location.href = '../demos.html';
