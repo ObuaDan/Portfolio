@@ -307,7 +307,7 @@ section {
   position: relative;
   overflow: hidden;
   text-align: center;
-  padding: 150px 0;
+  padding: 200px 0;
 }
 
 .demos-teaser .wrap {
@@ -574,7 +574,7 @@ section {
   }
 }
 
-@media(max-width: 450px) {
+@media(max-width: 350px) {
   .demo-grid {
     grid-template-columns: 1fr;
   }
