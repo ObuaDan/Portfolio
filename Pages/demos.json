@@ -1,6 +1,5 @@
 [
     {
-        "id": "",
         "title": "2D Platformer Shooter",
         "subtitle": "June 2026 - Present",
         "tags": [
@@ -12,20 +11,19 @@
         "page": "Demos/voxels_demo.html"
     },
     {
-        "id": "work in progress",
-        "title": "2D Topdown Shooter",
-        "subtitle": "work in progress..",
+        "title": "Flappy bird clone",
+        "subtitle": "August 2026",
         "tags": [
             "Unity",
             "C#",
             "2D"
         ],
-        "image": "",
-        "page": "Demos/voxels_demo.html"
+        "image": "/Images/flappy-bird.png",
+        "page": "Demos/flappy-bird_demo.html"
     },
     {
         "id": "work in progress",
-        "title": "Flappy bird clone",
+        "title": "2D Topdown Shooter",
         "subtitle": "work in progress..",
         "tags": [
             "Unity",

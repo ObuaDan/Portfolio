@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Unity Web Player | Demo Flappy Bird Clone</title>
+
+    <style>
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #231F20;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #unity-canvas {
+            display: block;
+            width: 540px;
+            height: 960px;
+            aspect-ratio: 9 / 16;
+            background: #231F20;
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="unity-canvas" tabindex="-1"></canvas>
+
+    <script src="Build/flappy-bird-webgl.loader.js"></script>
+
+    <script>
+        const canvas = document.querySelector("#unity-canvas");
+
+        function resizeCanvas() {
+            const availableWidth = window.innerWidth;
+            const availableHeight = window.innerHeight;
+
+            const scale = Math.min(
+                availableWidth / 540,
+                availableHeight / 960,
+                1
+            );
+
+            canvas.style.width = `${540 * scale}px`;
+            canvas.style.height = `${960 * scale}px`;
+        }
+
+        resizeCanvas();
+
+        window.addEventListener("resize", resizeCanvas);
+
+        window.addEventListener("keydown", function (event) {
+            if (event.code === "Space") {
+                event.preventDefault();
+            }
+        }, { passive: false });
+
+        createUnityInstance(canvas, {
+            arguments: [],
+            dataUrl: "Build/flappy-bird-webgl.data",
+            frameworkUrl: "Build/flappy-bird-webgl.framework.js",
+            codeUrl: "Build/flappy-bird-webgl.wasm",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "gamesbyDan",
+            productName: "Demo Flappy Bird Clone",
+            productVersion: "1.0"
+        }).then((unityInstance) => {
+
+        }).catch((message) => {
+            alert(message);
+        });
+    </script>
+
+</body>
+
+</html>
